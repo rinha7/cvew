@@ -1,16 +1,21 @@
 from django.shortcuts import render
 
 # Create your views here.
-
-
-# view 정의
 from django.http import HttpResponse
-
+from .models import Post
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return HttpResponse("Django main page")
 
-# create view를 작성할 필요가 잇음.
 def create(request):
-    if request.method == 'POST':
-        pass
+    if request.method == "POST":
+        img = request.FILES.get('imgs')
+        post = Post()
+        post.photo = img
+
+        post.save()
+
+    return render(request, 'enhance/enhance_main.html')
+
+def detail(request):
+    return HttpResponse("THIS IS DETAIL PAGE")

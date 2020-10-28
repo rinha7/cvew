@@ -6,5 +6,4 @@ from django.db import models
 from django.db import models
 
 class Post(models.Model):
-	title = models.CharField(max_length=100)
-	photo = models.ImageField(blank=True)
+	photo = models.ImageField(blank=True,upload_to="images/raw")

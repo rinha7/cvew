@@ -5,10 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="{% url 'detail' %}" enctype="multipart/form-data">
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" name="imgs">
     <input type="submit" value="제출">
 </form>
+<img src="{{ url  }}" alt="아직 사진이 업로드 되지 않았습니다."/>
 </body>
 </html>

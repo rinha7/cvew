@@ -12,10 +12,12 @@ def create(request):
         img = request.FILES.get('imgs')
         post = Post()
         post.photo = img
-
+        print("image's name is = ",str(img))
         post.save()
 
-    return render(request, 'enhance/enhance_main.html')
+        return render(request, 'enhance/enhance_main.html',{'url':"/media/images/raw/"+str(img)})
+    else:
+        return render(request, 'enhance/enhance_main.html')
 
 def detail(request):
     return HttpResponse("THIS IS DETAIL PAGE")

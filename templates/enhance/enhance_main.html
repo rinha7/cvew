@@ -11,5 +11,10 @@
     <input type="submit" value="제출">
 </form>
 <img src="{{ url  }}" alt="아직 사진이 업로드 되지 않았습니다."/>
+<form method="POST" action="{% url 'detail' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="img_name" value="{{ url }}" hidden>
+    <input type="submit" name="img_submit" value="enhance">
+</form>
 </body>
 </html>
